@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     height: NUMBER_HEIGHT,
     minWidth: NUMBER_HEIGHT,
+    overflow: 'hidden',
     justifyContent: 'space-around',
     alignItems: 'center',
   },
@@ -40,8 +41,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   padding: {
-    paddingLeft: 4,
-    paddingRight: 4,
+    padding: 4,
   },
   dotStyle: {
     height: 8,
@@ -56,12 +56,24 @@ class Badge extends Component {
     super();
     this.state = {
       opacity: 0,
+      top: -5,
+      right: -5,
+      borderRadius: 7,
     };
   }
 
-  // setPosition = ({nativeEvent: { layout: {x, y, width, height}}}) => {
-  //   console.log({nativeEvent: { layout: {x, y, width, height}}}, 'nativeEvent');
-  // }
+  // 获取徽标的布局信息
+  setPosition = (params) => {
+    const { nativeEvent } = params;
+    const { layout } = nativeEvent;
+    const { width, height } = layout;
+    this.setState({
+      top: -(height * 0.5),
+      right: -(width * 0.5),
+      borderRadius: height * 0.5,
+      opacity: 1,
+    });
+  }
 
   // 小红点生成器
   createDot = () => {
@@ -82,7 +94,6 @@ class Badge extends Component {
     if (typeof text !== 'string') {
       text = `${text}`;
     }
-    const textWidth = this.props.characterWidth * (text.length + 1);
 
     return (
       <View style={[styles.container, this.props.style]}>
@@ -93,11 +104,18 @@ class Badge extends Component {
         text.length > 0 ? (
           <View
             style={[styles.textContainer, styles.padding, {
-              width: textWidth,
+              right: this.state.right,
+              top: this.state.top,
+              borderRadius: this.state.borderRadius,
+              opacity: this.state.opacity,
             }, this.props.textContainerStyle]}
             onLayout={this.setPosition}
           >
-            <Text style={[styles.text, this.props.textStyle]}>
+            <Text
+              style={[styles.text, this.props.textStyle]}
+              numberOfLines={1}
+              onLayout={this.setHeight}
+            >
               {text}
             </Text>
           </View>
@@ -115,8 +133,6 @@ Badge.propTypes = {
   textContainerStyle: View.propTypes.style,
   // 自定义文本样式
   textStyle: Text.propTypes.style,
-  // 单个字符宽度
-  characterWidth: PropTypes.number,
   // 角标文本内容
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   // 主体元素
@@ -128,7 +144,6 @@ Badge.defaultProps = {
   style: null,
   textContainerStyle: null,
   textStyle: null,
-  characterWidth: 7,
   text: '',
   children: null,
   dot: null,
