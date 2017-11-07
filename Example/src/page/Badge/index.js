@@ -59,6 +59,15 @@ function Page() {
           </View>
         </Article>
 
+        <Article title="dot 单独使用">
+          <View style={styles.container}>
+            <Badge dot>
+              <Text>dot</Text>
+            </Badge>
+            <View style={styles.placeholder} />
+          </View>
+        </Article>
+
         <Article title="自定义位置">
           <View style={styles.container}>
             <Badge text="8" textContainerStyle={styles.textContainerStyle}>
