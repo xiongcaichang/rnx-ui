@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     borderRadius: 7,
     height: NUMBER_HEIGHT,
-    overflow: 'hidden',
-    justifyContent: 'center',
+    minWidth: NUMBER_HEIGHT,
+    justifyContent: 'space-around',
     alignItems: 'center',
   },
   text: {
@@ -39,9 +39,43 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#fff',
   },
+  padding: {
+    paddingLeft: 4,
+    paddingRight: 4,
+  },
+  dotStyle: {
+    height: 8,
+    minWidth: 8,
+    top: -3,
+    right: -4,
+  },
 });
 
 class Badge extends Component {
+  constructor() {
+    super();
+    this.state = {
+      opacity: 0,
+    };
+  }
+
+  // setPosition = ({nativeEvent: { layout: {x, y, width, height}}}) => {
+  //   console.log({nativeEvent: { layout: {x, y, width, height}}}, 'nativeEvent');
+  // }
+
+  // 小红点生成器
+  createDot = () => {
+    let str = null;
+    if (this.props.dot) {
+      str = (<View
+        style={[styles.textContainer, styles.dotStyle, this.props.textContainerStyle]}
+      >
+        <Text style={[styles.text, this.props.textStyle]}>{null}</Text>
+      </View>);
+    }
+    return str;
+  }
+
   render() {
     let text = this.props.text;
 
@@ -58,15 +92,16 @@ class Badge extends Component {
         {
         text.length > 0 ? (
           <View
-            style={[styles.textContainer, {
+            style={[styles.textContainer, styles.padding, {
               width: textWidth,
             }, this.props.textContainerStyle]}
+            onLayout={this.setPosition}
           >
             <Text style={[styles.text, this.props.textStyle]}>
               {text}
             </Text>
           </View>
-        ) : null
+        ) : this.createDot()
       }
       </View>
     );
@@ -86,6 +121,8 @@ Badge.propTypes = {
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   // 主体元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  // 单独使用小红点
+  dot: PropTypes.bool,
 };
 Badge.defaultProps = {
   style: null,
@@ -94,6 +131,7 @@ Badge.defaultProps = {
   characterWidth: 7,
   text: '',
   children: null,
+  dot: null,
 };
 
 export default Badge;
