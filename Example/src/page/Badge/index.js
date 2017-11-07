@@ -68,6 +68,15 @@ function Page() {
           </View>
         </Article>
 
+        <Article title="位置右居中">
+          <View style={styles.container}>
+            <Badge text="位置根据计算居中">
+              <Text>位置右居中</Text>
+            </Badge>
+            <View style={styles.placeholder} />
+          </View>
+        </Article>
+
         <Article title="自定义位置">
           <View style={styles.container}>
             <Badge text="8" textContainerStyle={styles.textContainerStyle}>
