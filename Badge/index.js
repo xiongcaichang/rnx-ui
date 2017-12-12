@@ -13,7 +13,8 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
-const NUMBER_HEIGHT = 14;
+const TEXT_HEIGHT = 14;
+const DOT_HEIGHT = 8;
 
 const styles = StyleSheet.create({
   container: {
@@ -25,35 +26,32 @@ const styles = StyleSheet.create({
     right: -5,
     backgroundColor: 'red',
     borderRadius: 7,
-    height: NUMBER_HEIGHT,
-    minWidth: NUMBER_HEIGHT,
+    height: TEXT_HEIGHT,
+    minWidth: TEXT_HEIGHT,
     overflow: 'hidden',
     justifyContent: 'space-around',
     alignItems: 'center',
+    padding: 4,
   },
   text: {
     fontSize: 10,
     color: '#fff',
     marginTop: -1,
   },
-  icon: {
-    fontSize: 20,
-    color: '#fff',
-  },
-  padding: {
-    padding: 4,
-  },
-  dotStyle: {
-    height: 8,
-    minWidth: 8,
-    top: -3,
+  dot: {
+    height: DOT_HEIGHT,
+    width: DOT_HEIGHT,
+    top: -4,
     right: -4,
+    position: 'absolute',
+    backgroundColor: 'red',
+    borderRadius: DOT_HEIGHT / 2,
   },
 });
 
 class Badge extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       opacity: 0,
       top: -5,
@@ -76,16 +74,15 @@ class Badge extends Component {
   }
 
   // 小红点生成器
-  createDot = () => {
-    let str = null;
+  createDot() {
     if (this.props.dot) {
-      str = (<View
-        style={[styles.textContainer, styles.dotStyle, this.props.textContainerStyle]}
-      >
-        <Text style={[styles.text, this.props.textStyle]}>{null}</Text>
-      </View>);
+      return (
+        <View
+          style={[styles.dot, this.props.dotStyle]}
+        />
+      );
     }
-    return str;
+    return null;
   }
 
   render() {
@@ -103,7 +100,7 @@ class Badge extends Component {
         {
         text.length > 0 ? (
           <View
-            style={[styles.textContainer, styles.padding, {
+            style={[styles.textContainer, {
               right: this.state.right,
               top: this.state.top,
               borderRadius: this.state.borderRadius,
@@ -114,7 +111,6 @@ class Badge extends Component {
             <Text
               style={[styles.text, this.props.textStyle]}
               numberOfLines={1}
-              onLayout={this.setHeight}
             >
               {text}
             </Text>
@@ -127,18 +123,20 @@ class Badge extends Component {
 }
 
 Badge.propTypes = {
-  // 自定义样式
+  // 样式
   style: View.propTypes.style,
-  // 自定义文本容器样式
+  // 文本容器样式
   textContainerStyle: View.propTypes.style,
-  // 自定义文本样式
+  // 文本样式
   textStyle: Text.propTypes.style,
   // 角标文本内容
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   // 主体元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  // 单独使用小红点
+  // 是否使用小红点
   dot: PropTypes.bool,
+  // 小红点样式
+  dotStyle: View.propTypes.style,
 };
 Badge.defaultProps = {
   style: null,
@@ -147,6 +145,7 @@ Badge.defaultProps = {
   text: '',
   children: null,
   dot: null,
+  dotStyle: null,
 };
 
 export default Badge;
