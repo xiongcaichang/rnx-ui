@@ -50,7 +50,7 @@ class Progress extends Component {
       /* eslint-enable */
         Animated.timing(this.state.progressWidth, {
           toValue: progressWidth,
-          duration: this.props.duration,
+          duration: nextProps.duration,
           // linear animation looks smoother
           easing: Easing.linear,
         }).start();
