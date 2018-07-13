@@ -7,6 +7,7 @@ import {
   ListView,
   TouchableWithoutFeedback,
   Dimensions,
+  ViewPropTypes
 } from 'react-native';
 import PropTypes from 'prop-types';
 

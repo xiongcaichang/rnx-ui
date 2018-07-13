@@ -3,6 +3,7 @@ import {
   TouchableWithoutFeedback,
   View,
   Text,
+  ViewPropTypes
 } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -63,13 +64,13 @@ VirtualPasswordInput.propTypes = {
   // 是否启用安全输入
   secureTextEntry: PropTypes.bool,
   // 最外层样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 容器样式
-  containerStyle: View.propTypes.style,
+  containerStyle: ViewPropTypes.style,
   // 单个输入框样式
-  cellStyle: View.propTypes.style,
+  cellStyle: ViewPropTypes.style,
   // 安全码样式
-  secureStyle: View.propTypes.style,
+  secureStyle: ViewPropTypes.style,
   // 文本样式
   textStyle: Text.propTypes.style,
   // 最大长度

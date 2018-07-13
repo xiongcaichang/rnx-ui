@@ -5,6 +5,7 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
+  ViewPropTypes
 } from 'react-native';
 import PropTypes from 'prop-types';
 

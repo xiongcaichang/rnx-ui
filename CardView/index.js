@@ -6,6 +6,7 @@ import {
   View,
   Dimensions,
   PanResponder,
+  ViewPropTypes
 } from 'react-native';
 import PropTypes from 'prop-types';
 

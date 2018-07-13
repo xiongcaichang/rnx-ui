@@ -8,6 +8,7 @@ import {
   StyleSheet,
   ActivityIndicator,
   View,
+  ViewPropTypes
 } from 'react-native';
 import PropTypes from 'prop-types';
 

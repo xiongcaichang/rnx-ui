@@ -9,6 +9,7 @@ import React, {
 import {
   StyleSheet,
   View,
+  ViewPropTypes
 } from 'react-native';
 import PropTypes from 'prop-types';
 

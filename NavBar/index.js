@@ -4,6 +4,7 @@ import {
   View,
   Text,
   TouchableOpacity,
+  ViewPropTypes
 } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -11,6 +12,7 @@ import {
   ACTIVE_OPACITY,
 } from '../constant';
 import styles from './styles.js';
+import { ViewPropTypes } from '../../../Library/Caches/typescript/2.6/node_modules/@types/react-native';
 
 const isAndroid = Platform.OS === 'android';
 
@@ -110,7 +112,7 @@ class NavBar extends Component {
 
 NavBar.propTypes = {
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // statusBar 高度
   statusBarHeight: PropTypes.number,
   // header 高度
