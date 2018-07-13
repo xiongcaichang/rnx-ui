@@ -37,7 +37,7 @@ ActionSheet.propTypes = {
   // 按钮组
   btnList: PropTypes.arrayOf(PropTypes.shape({
     // 按钮样式
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
     // 按钮文字
     text: PropTypes.string,
     // 按钮文字样式
@@ -46,11 +46,11 @@ ActionSheet.propTypes = {
     onPress: PropTypes.func,
   })),
   // 统一按钮样式
-  btnStyle: View.propTypes.style,
+  btnStyle: ViewPropTypes.style,
   // 统一按钮文字样式
   btnTextStyle: Text.propTypes.style,
   // 取消按钮样式
-  cancelBtnStyle: View.propTypes.style,
+  cancelBtnStyle: ViewPropTypes.style,
   // 取消按钮文字
   cancelBtnText: PropTypes.string,
   // 取消按钮文字样式
@@ -68,7 +68,7 @@ ActionSheet.propTypes = {
   // 隐藏回调
   onHide: PropTypes.func,
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 按钮点击透明度变化
   underlayColor: PropTypes.string,
 };

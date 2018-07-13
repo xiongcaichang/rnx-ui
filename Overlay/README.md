@@ -25,11 +25,11 @@ Overlay.propTypes = {
   // 点击回调
   onPress: PropTypes.func,
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 控制 Overlay 是否可以作为触控事件的目标（参考 https://facebook.github.io/react-native/docs/view.html#pointerevents）
-  pointerEvents: View.propTypes.pointerEvents,
+  pointerEvents: ViewPropTypes.pointerEvents,
   // 是否使用动画
   useAnimation: PropTypes.bool,
   // 动画时长

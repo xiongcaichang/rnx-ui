@@ -68,7 +68,7 @@ ImgDisplayer.propTypes = {
   // index
   index: PropTypes.number,
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 图片自定义样式
   imgStyle: Image.propTypes.style,
   // 图片点击回调
@@ -76,7 +76,7 @@ ImgDisplayer.propTypes = {
   // 删除按钮内容元素
   deleter: PropTypes.element,
   // 删除按钮自定义样式
-  deleterStyle: View.propTypes.style,
+  deleterStyle: ViewPropTypes.style,
   // 删除按钮点击回调
   onDeleterPress: PropTypes.func,
   // 删除按钮点击颜色反馈

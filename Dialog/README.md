@@ -42,7 +42,7 @@ Dialog.propTypes = {
   // 标题文本样式（title 为字符串时才生效）
   messageStyle: Text.propTypes.style,
   // 按钮容器样式
-  buttonsContainerStyle: View.propTypes.style,
+  buttonsContainerStyle: ViewPropTypes.style,
   // 按钮
   buttons: PropTypes.arrayOf(PropTypes.shape({
     // 按钮文本
@@ -53,9 +53,9 @@ Dialog.propTypes = {
     onPress: PropTypes.func,
   })),
   // 弹框样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 遮罩层样式
-  overlayStyle: View.propTypes.style,
+  overlayStyle: ViewPropTypes.style,
   // 是否使用 Overlay 动画
   useOverlayAnimation: PropTypes.bool,
   // Overlay 动画时长

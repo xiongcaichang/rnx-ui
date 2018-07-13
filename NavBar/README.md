@@ -11,7 +11,7 @@
 ```js
 NavBar.propTypes = {
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // statusBar 高度
   statusBarHeight: PropTypes.number,
   // header 高度

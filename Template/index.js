@@ -34,7 +34,7 @@ class Template extends Component {
 
 Template.propTypes = {
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };

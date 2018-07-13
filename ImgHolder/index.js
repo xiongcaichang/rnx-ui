@@ -83,7 +83,7 @@ class ImgHolder extends Component {
 
 ImgHolder.propTypes = {
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 图片资源
   source: Image.propTypes.source,
   // 图片样式

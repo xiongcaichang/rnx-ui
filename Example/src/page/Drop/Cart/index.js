@@ -47,7 +47,7 @@ class Cart extends Component {
 }
 
 Cart.propTypes = {
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   iconStyle: Icon.propTypes.style,
 };
 Cart.defaultProps = {

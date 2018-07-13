@@ -25,7 +25,7 @@ PlaceholderText.propTypes = {
   // 值自定义样式
   valueStyle: Text.propTypes.style,
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 占位元素
   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // 占位元素样式（placeholder 为字符串时才生效）

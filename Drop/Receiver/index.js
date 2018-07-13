@@ -93,7 +93,7 @@ Receiver.propTypes = {
   // 动画时间
   duration: PropTypes.number,
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 布局回调

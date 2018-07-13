@@ -23,9 +23,9 @@ function Example(props) {
 ```js
 Btn.propTypes = {
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 内部容器样式
-  contentContainerStyle: View.propTypes.style,
+  contentContainerStyle: ViewPropTypes.style,
   // 按钮文本样式（children 为字符串时才生效）
   textStyle: Text.propTypes.style,
   // 点击回调

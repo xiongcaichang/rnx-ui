@@ -31,7 +31,7 @@ function Example(props) {
 ## Props
 
 ```js
-ImgRollView.propTypes = {
+ImgRollViewPropTypes = {
   // 最大照片选择条数
   maxSelected: PropTypes.number,
   // 图片间像素间隔

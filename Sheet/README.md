@@ -13,11 +13,11 @@
 ```js
 Sheet.propTypes = {
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 显示开关
   visible: PropTypes.bool.isRequired,
   // 遮罩层样式
-  overlayStyle: View.propTypes.style,
+  overlayStyle: ViewPropTypes.style,
   // Overlay 动画时长
   overlayAnimationDuration: PropTypes.number,
   // 遮罩点击事件

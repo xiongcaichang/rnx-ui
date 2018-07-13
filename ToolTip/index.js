@@ -61,9 +61,9 @@ ToolTip.propTypes = {
   // 显示文本
   text: PropTypes.string.isRequired,
   // 遮罩层样式
-  overlayStyle: View.propTypes.style,
+  overlayStyle: ViewPropTypes.style,
   // 文本容器样式
-  textWrapperStyle: View.propTypes.style,
+  textWrapperStyle: ViewPropTypes.style,
   // 文本样式
   textStyle: Text.propTypes.style,
   // 控制 Overlay 是否可以作为触控事件的目标（参考 https://facebook.github.io/react-native/docs/view.html#pointerevents）

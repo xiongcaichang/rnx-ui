@@ -116,13 +116,13 @@ class Progress extends Component {
 
 Progress.propTypes = {
   // 容器样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 进度条宽度
   width: PropTypes.number,
   // 进度条背景样式
-  outerStyle: View.propTypes.style,
+  outerStyle: ViewPropTypes.style,
   // 进度条样式
-  innerStyle: View.propTypes.style,
+  innerStyle: ViewPropTypes.style,
   // 动画时长
   /* eslint-disable */
   duration: PropTypes.number,

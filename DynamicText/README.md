@@ -29,7 +29,7 @@ function Example(props) {
 ```js
 DynamicText.propTypes = {
   // 自定义wrapper样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 自定义文本样式
   textStyle: Text.propTypes.style,
   // 显示文本

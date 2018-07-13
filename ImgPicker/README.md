@@ -41,11 +41,11 @@ ImgPicker.propTypes = {
   // ImgDisplayer 属性
   imgDisplayerProps: PropTypes.shape(ImgDisplayer.propTypes),
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 每项自定义样式
-  itemStyle: View.propTypes.style,
+  itemStyle: ViewPropTypes.style,
   // 添加按钮自定义样式
-  adderBtnStyle: View.propTypes.style,
+  adderBtnStyle: ViewPropTypes.style,
   // 添加按钮点击回调
   onAdderPress: PropTypes.func,
   // 添加按钮内容元素

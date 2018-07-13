@@ -27,9 +27,9 @@ HeaderedSheet.propTypes = {
   // 自定容器义样式（包含 header 区域）
   containerStyle: Sheet.propTypes.style,
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 自定义 header 样式
-  headerStyle: View.propTypes.style,
+  headerStyle: ViewPropTypes.style,
   // 标题
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // 标题文本样式（title 为字符串时才生效）

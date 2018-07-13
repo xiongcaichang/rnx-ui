@@ -69,11 +69,11 @@ class Example extends Component {
 ## Props
 
 ```js
-KeyboardAdaptiveView.propTypes = {
+KeyboardAdaptiveViewPropTypes = {
   // 获取元素回调
   getEl: PropTypes.func,
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 更多距离。iOS 系统键盘可能会出现 suggest 行，导致键盘高度获取不准确。

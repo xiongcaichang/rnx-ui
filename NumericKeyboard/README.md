@@ -27,7 +27,7 @@ function Example(props) {
 ```js
 NumericKeyboard.propTypes = {
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 按键回调
   onPress: PropTypes.func,
   // 删除键内容

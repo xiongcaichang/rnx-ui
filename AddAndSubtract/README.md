@@ -54,19 +54,19 @@ AddAndSubtract.propTypes = {
   // 按钮宽度
   btnWidth: PropTypes.number,
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 加法按钮样式
-  adderBtnStyle: View.propTypes.style,
+  adderBtnStyle: ViewPropTypes.style,
   // 加法元素样式
-  adderStyle: View.propTypes.style,
+  adderStyle: ViewPropTypes.style,
   // 加法元素触摸时底色
   adderUnderlayColor: TouchableHighlight.propTypes.underlayColor,
   // 减法按钮容器样式
-  subtracterWrapperStyle: View.propTypes.style,
+  subtracterWrapperStyle: ViewPropTypes.style,
   // 减法按钮样式
-  subtracterBtnStyle: View.propTypes.style,
+  subtracterBtnStyle: ViewPropTypes.style,
   // 减法元素样式
-  subtracterStyle: View.propTypes.style,
+  subtracterStyle: ViewPropTypes.style,
   // 减法元素触摸时底色
   subtracterUnderlayColor: TouchableHighlight.propTypes.underlayColor,
   // 自定义字体样式

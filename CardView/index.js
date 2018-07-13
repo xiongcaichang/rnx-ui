@@ -290,13 +290,13 @@ class CardView extends Component {
   }
 }
 
-CardView.propTypes = {
+CardViewPropTypes = {
   // 样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 缩放系数
   scaleCoefficient: PropTypes.number,
   // 当前卡片样式
-  activeCardStyle: View.propTypes.style,
+  activeCardStyle: ViewPropTypes.style,
   // 卡片数组
   cards: PropTypes.arrayOf(PropTypes.shape({
     /* eslint-disable */
@@ -311,7 +311,7 @@ CardView.propTypes = {
   // 卡片间隔
   cardGap: PropTypes.number,
   // 自定义内容容器样式
-  contentContainerStyle: View.propTypes.style,
+  contentContainerStyle: ViewPropTypes.style,
   // 卡片切换时的回调，参数为当前激活的卡片序号
   onChange: PropTypes.func,
   // 卡片经过时的回调，参数为当前经过的卡片序号

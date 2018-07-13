@@ -28,11 +28,11 @@
 ```js
 SmsCaptchaInput.propTypes = {
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 自定义输入框样式
   inputStyle: TextInput.propTypes.style,
   // 自定义按钮样式
-  btnStyle: View.propTypes.style,
+  btnStyle: ViewPropTypes.style,
   // 按钮文字：初始状态
   btnTextInital: PropTypes.string,
   // 按钮文字：发送短信中

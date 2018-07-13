@@ -94,7 +94,7 @@ class PhoneNumInput extends Component {
 
 PhoneNumInput.propTypes = {
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 自定义输入框样式
   inputStyle: TextInput.propTypes.style,
   // 提示文字

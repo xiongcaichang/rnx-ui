@@ -62,7 +62,7 @@ TabBar.propTypes = {
   // 激活项的 Id，必须是 items 项的 id 属性
   activeId: PropTypes.string,
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   /* eslint-disable */
   // tab 项
   items: PropTypes.arrayOf(PropTypes.shape({

@@ -21,7 +21,7 @@ function Example(props) {
 ```js
 PlaceholderInput.propTypes = {
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 初始值
   defaultValue: PropTypes.string,
   // 自定义输入框样式

@@ -525,7 +525,7 @@ class RefreshView extends Component {
   }
 }
 
-RefreshView.propTypes = {
+RefreshViewPropTypes = {
   // 滚动回调，参数为滚动距离
   onScroll: PropTypes.func,
   // 调用 onEndReached 之前的临界值，描述距底部的距离

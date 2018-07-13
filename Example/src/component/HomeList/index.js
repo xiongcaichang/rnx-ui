@@ -63,7 +63,7 @@ class List extends Component {
 
 List.propTypes = {
   // 自定义样式
-  style: ListView.propTypes.style,
+  style: ListViewPropTypes.style,
   // 列表项
   items: ListItem.propTypes.item,
   sectionIds: PropTypes.arrayOf(PropTypes.string),

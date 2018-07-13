@@ -125,9 +125,9 @@ class Badge extends Component {
 
 Badge.propTypes = {
   // 样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 文本容器样式
-  textContainerStyle: View.propTypes.style,
+  textContainerStyle: ViewPropTypes.style,
   // 文本样式
   textStyle: Text.propTypes.style,
   // 角标文本内容
@@ -137,7 +137,7 @@ Badge.propTypes = {
   // 是否使用小红点
   dot: PropTypes.bool,
   // 小红点样式
-  dotStyle: View.propTypes.style,
+  dotStyle: ViewPropTypes.style,
 };
 Badge.defaultProps = {
   style: null,

@@ -97,7 +97,7 @@ Dropper.propTypes = {
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
 };
 Dropper.defaultProps = {
   startPosition: {
@@ -159,7 +159,7 @@ Emitter.propTypes = {
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
 };
 Emitter.defaultProps = {
   onPress: NOOP,
@@ -220,7 +220,7 @@ Receiver.propTypes = {
   // 动画时间
   duration: PropTypes.number,
   // 自定义样式
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 布局回调
