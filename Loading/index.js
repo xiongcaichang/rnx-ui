@@ -59,9 +59,9 @@ Loading.propTypes = {
   // 遮罩层样式
   overlayStyle: ViewPropTypes.style,
   // 菊花容器样式
-  loaderStyle: PropTypes.string,
+  loaderStyle: ViewPropTypes.style,
   // 菊花图标的颜色
-  color: ActivityIndicator.propTypes.color,
+  color: ViewPropTypes.color,
   // 菊花图标的大小
   size: PropTypes.oneOfType(["large", "small"]),
   // 是否使用 Overlay 动画
