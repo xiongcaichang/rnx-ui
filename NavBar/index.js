@@ -12,7 +12,6 @@ import {
   ACTIVE_OPACITY,
 } from '../constant';
 import styles from './styles.js';
-import { ViewPropTypes } from '../../../Library/Caches/typescript/2.6/node_modules/@types/react-native';
 
 const isAndroid = Platform.OS === 'android';
 
