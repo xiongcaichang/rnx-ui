@@ -63,7 +63,7 @@ Loading.propTypes = {
   // 菊花图标的颜色
   color: PropTypes.string,
   // 菊花图标的大小
-  size: PropTypes.oneOfType(["large", "small"]),
+  size: PropTypes.oneOf(["large", "small"]),
   // 是否使用 Overlay 动画
   useOverlayAnimation: PropTypes.bool,
   // Overlay 动画时长
