@@ -143,7 +143,7 @@ Overlay.defaultProps = {
   style: null,
   children: null,
   pointerEvents: 'auto',
-  duration: 500,
+  duration: 200,
   useAnimation: true,
 };
 
