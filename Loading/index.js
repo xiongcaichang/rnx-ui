@@ -1,84 +1,150 @@
 /**
- * 菊花加载中组件
+ * 遮罩层
  */
 import React, {
   Component,
 } from 'react';
 import {
   StyleSheet,
-  ActivityIndicator,
+  Animated,
+  TouchableWithoutFeedback,
   View,
   ViewPropTypes
 } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Overlay from '../Overlay';
+const NOOP = () => {};
 
 const styles = StyleSheet.create({
-  overlay: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
-  },
-  loader: {
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    borderRadius: 5,
-    height: 50,
-    justifyContent: 'center',
-    width: 50,
+  all: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
   },
 });
 
-class Loading extends Component {
+class Overlay extends Component {
+  constructor(props) {
+    super(props);
+
+    const visible = props.visible;
+
+    this.state = {
+      visible,
+      opacity: new Animated.Value(visible ? 1 : 0.5),
+    };
+
+    this.aniShow = Animated.timing(this.state.opacity, {
+      toValue: 1,
+      duration: props.duration,
+    });
+    this.aniHide = Animated.timing(this.state.opacity, {
+      toValue: 0,
+      duration: props.duration,
+    });
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.visible && !this.props.visible) {
+      // 隐藏 -> 显示
+      this.show();
+    } else if (!props.visible && this.props.visible) {
+      // 显示 -> 隐藏
+      this.hide();
+    }
+  }
+
+  // 显示
+  show() {
+    if (this.props.useAnimation) {
+      this.aniHide.stop();
+    }
+
+    this.setState({
+      visible: true,
+    });
+
+    if (this.props.useAnimation) {
+      this.aniShow.start();
+    }
+  }
+
+  // 隐藏
+  hide() {
+    if (this.props.useAnimation) {
+      this.aniHide.stop();
+      this.aniHide.start(() => {
+        this.setState({
+          visible: false,
+        });
+      });
+    } else {
+      this.setState({
+        visible: false,
+      });
+    }
+  }
+
   render() {
+    if (!this.state.visible) {
+      return null;
+    }
+
     return (
-      <Overlay
-        visible={this.props.visible}
-        style={[styles.overlay, this.props.overlayStyle]}
-        useAnimation={this.props.useOverlayAnimation}
-        duration={this.props.overlayAnimationDuration}
-        onShow={this.props.onShow}
-        onHide={this.props.onHide}
+      <TouchableWithoutFeedback
+        onPress={this.props.onPress}
       >
-        <View style={[styles.loader, this.props.loaderStyle]}>
-          <ActivityIndicator
-            animating
-            color={this.props.color}
-            size={this.props.size}
-          />
-        </View>
-      </Overlay>
+        {
+          this.props.useAnimation ? (
+            <Animated.View
+              style={[styles.all, {
+                backgroundColor: this.state.opacity,
+              }, this.props.style]}
+              pointerEvents={this.props.pointerEvents}
+            >
+              {this.props.children}
+            </Animated.View>
+          ) : (
+            <View
+              style={[styles.all, this.props.style]}
+              pointerEvents={this.props.pointerEvents}
+            >
+              {this.props.children}
+            </View>
+          )
+        }
+      </TouchableWithoutFeedback>
     );
   }
 }
 
-Loading.propTypes = {
+Overlay.propTypes = {
   // 显示开关
   visible: PropTypes.bool.isRequired,
-  // 遮罩层样式
-  overlayStyle: ViewPropTypes.style,
-  // 菊花容器样式
-  loaderStyle: ViewPropTypes.style,
-  // 菊花图标的颜色
-  color: PropTypes.string,
-  // 菊花图标的大小
-  size: PropTypes.oneOf(["large", "small"]),
-  // 是否使用 Overlay 动画
-  useOverlayAnimation: PropTypes.bool,
-  // Overlay 动画时长
-  overlayAnimationDuration: PropTypes.number,
-  // 显示回调
-  onShow: PropTypes.func,
-  // 隐藏回调
-  onHide: PropTypes.func,
+  // 点击回调
+  onPress: PropTypes.func,
+  // 自定义样式
+  style: View.propTypes.style,
+  // 子元素
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  // 控制 Overlay 是否可以作为触控事件的目标（参考 https://facebook.github.io/react-native/docs/view.html#pointerevents）
+  pointerEvents: ViewPropTypes.pointerEvents,
+  // 动画时长
+  duration: PropTypes.number,
+  // 是否使用动画
+  useAnimation: PropTypes.bool,
 };
-Loading.defaultProps = {
+Overlay.defaultProps = {
   visible: false,
-  overlayStyle: null,
-  loaderStyle: null,
-  color: '#fff',
-  size: 'small',
+  onPress: NOOP,
+  style: null,
+  children: null,
+  pointerEvents: 'auto',
+  duration: 500,
+  useAnimation: true,
 };
 
-export default Loading;
+export default Overlay;
