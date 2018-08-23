@@ -2,7 +2,6 @@
  * 遮罩层
  */
 import React, {
-  PropTypes,
   Component,
 } from 'react';
 import {
@@ -10,7 +9,9 @@ import {
   Animated,
   TouchableWithoutFeedback,
   View,
+  ViewPropTypes,
 } from 'react-native';
+import PropTypes from 'prop-types'
 
 const NOOP = () => {};
 
@@ -100,7 +101,7 @@ class Overlay extends Component {
           this.props.useAnimation ? (
             <Animated.View
               style={[styles.all, {
-                opacity: this.state.opacity,
+                backgroundColor: this.state.opacity,
               }, this.props.style]}
               pointerEvents={this.props.pointerEvents}
             >
@@ -130,7 +131,7 @@ Overlay.propTypes = {
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 控制 Overlay 是否可以作为触控事件的目标（参考 https://facebook.github.io/react-native/docs/view.html#pointerevents）
-  pointerEvents: View.propTypes.pointerEvents,
+  pointerEvents: ViewPropTypes.pointerEvents,
   // 动画时长
   duration: PropTypes.number,
   // 是否使用动画
