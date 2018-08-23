@@ -34,7 +34,7 @@ class Overlay extends Component {
 
     this.state = {
       visible,
-      opacity: new Animated.Value(visible ? 1 : 0),
+      opacity: new Animated.Value(visible ? 1 : 0.8),
     };
 
     this.aniShow = Animated.timing(this.state.opacity, {
@@ -101,7 +101,7 @@ class Overlay extends Component {
           this.props.useAnimation ? (
             <Animated.View
               style={[styles.all, {
-                backgroundColor: this.state.opacity,
+                opacity: this.state.opacity,
               }, this.props.style]}
               pointerEvents={this.props.pointerEvents}
             >
